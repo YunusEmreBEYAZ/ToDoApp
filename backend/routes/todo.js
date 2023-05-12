@@ -1,5 +1,5 @@
 import express from "express";
-import { addToDo, getAlltoDo, findToDO } from "../controllers/todoController.js";
+import { addToDo, getAlltoDo, findToDO, deleteToDo, updateToDo } from "../controllers/todoController.js";
 
 const router = express.Router();
 
@@ -9,13 +9,9 @@ router.get('/:id', findToDO)
 
 router.post('/', addToDo);
 
-router.delete('/:id', (req, res) => {
-    res.json({ msg: 'DELETE a todo' })
-})
+router.delete('/:id', deleteToDo)
 
-router.patch('/:id', (req, res) => {
-    res.json({ msg: 'UPDATE a todo' })
-})
+router.patch('/:id', updateToDo)
 
 
 export default router
