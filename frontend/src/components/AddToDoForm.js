@@ -28,7 +28,7 @@ export const AddToDoForm = () => {
             setTitle('')
             setCategory('')
             setError(null)
-            console.log('New note added', json);
+            // console.log('New note added', json);
         }
 
     }
@@ -43,10 +43,12 @@ export const AddToDoForm = () => {
                 value={title}
                 placeholder="Add a new note..."
             />
-            <select className="select-category" value={category} onChange={(e) => setCategory(e.target.value)}>
-                <option value="general" >General</option>
+            <select required className="select-category" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="" >Select Category</option>
+                <option value="general">General</option>
                 <option value="movies" >Movies</option>
                 <option value="books">Books</option>
+                <option value="shopping">Shopping</option>
 
 
             </select>

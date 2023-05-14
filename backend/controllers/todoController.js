@@ -11,14 +11,14 @@ export const getAlltoDo = async (req, res) => {
 export const findToDO = async (req, res) => {
     const { id } = req.params;
 
-    // for checkig the mongodb response if id is valid or not
+    // for check the mongodb response if id is valid or not
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
     const toDo = await Todo.findById(id)
-    // if it is valid but user dont have the todo with that id
+    // if it is valid but user don't have the todo with that id
     if (!toDo) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
 
     res.status(200).json(toDo)
@@ -38,7 +38,7 @@ export const addToDo = async (req, res) => {
         }
 
     } else {
-        res.status(400).send('Please add title and choose a category!')
+        res.status(400).json({ error: "Please add title and choose a category!" });
     }
 
 }
@@ -47,15 +47,15 @@ export const addToDo = async (req, res) => {
 export const deleteToDo = async (req, res) => {
     const { id } = req.params;
 
-    // for checkig the mongodb response if id is valid or not
+    // for check the mongodb response if id is valid or not
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
 
     const ToDo = await Todo.findOneAndDelete({ _id: id })
 
     if (!ToDo) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
 
     res.status(200).json(ToDo)
@@ -65,14 +65,14 @@ export const deleteToDo = async (req, res) => {
 export const updateToDo = async (req, res) => {
     const { id } = req.params;
 
-    // for checkig the mongodb response if id is valid or not
+    // for check the mongodb response if id is valid or not
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
 
     const ToDo = await Todo.findByIdAndUpdate({ _id: id }, { ...req.body })
     if (!ToDo) {
-        return res.status(404).json({ error: `You dont have any to do with id: ${id}` })
+        return res.status(404).json({ error: `You don't have any to do with id: ${id}` })
     }
 
     res.status(200).json(ToDo)
