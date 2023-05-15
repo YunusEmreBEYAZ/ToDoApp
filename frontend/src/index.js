@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { ToDoContextProvider } from './context/ToDoContext';
+import { TodoContextProvider } from './context/ToDoContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ToDoContextProvider>
+    <TodoContextProvider>
       <App />
-    </ToDoContextProvider>
+    </TodoContextProvider>
   </React.StrictMode>
 );
 

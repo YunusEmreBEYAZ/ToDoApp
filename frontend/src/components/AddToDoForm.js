@@ -1,30 +1,27 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { TodoContext } from "../context/ToDoContext.js"
 
 export const AddToDoForm = () => {
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
     const [error, setError] = useState(null)
 
+    //useContext
+    const { addTodo } = useContext(TodoContext)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const newToDo = {
+        const newTodo = {
             title,
             category
         }
 
-        const response = await fetch('todo', {
-            method: 'POST',
-            body: JSON.stringify(newToDo),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        const response = await addTodo(newTodo);
 
-        const json = response.json()
-        if (!response.ok) {
-            setError(json.error)
+
+        if (!response) {
+            setError(response.error)
         }
-        if (response.ok) {
+        if (response) {
             setTitle('')
             setCategory('')
             setError(null)
