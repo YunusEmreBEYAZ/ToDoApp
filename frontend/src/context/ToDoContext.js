@@ -4,19 +4,18 @@ export const TodoContext = createContext();
 
 export const TodoContextProvider = ({ children }) => {
     const [todos, setTodos] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const fetchTodos = async () => {
-        setIsLoading(true);
+
         try {
             const response = await fetch("todo");
             const json = await response.json();
             setTodos(json);
-            setIsLoading(false);
+
         } catch (error) {
             setError(error);
-            setIsLoading(false);
+
         }
     };
 
@@ -57,7 +56,6 @@ export const TodoContextProvider = ({ children }) => {
         todos,
         addTodo,
         deleteTodo,
-        isLoading,
         error,
     };
 
