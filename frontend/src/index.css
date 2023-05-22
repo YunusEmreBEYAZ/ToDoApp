@@ -39,6 +39,25 @@ a {
   color: #464545;
 }
 
+.header-categories {
+  width: 30%;
+}
+
+.nav-category-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.nav-category-item {
+  margin-left: 15px;
+  list-style-type: none;
+}
+
+.active {
+  color: red;
+}
+
 .pages {
   margin: 0 5%;
 }
@@ -46,7 +65,7 @@ a {
 
 .todo-container {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 
 }
@@ -60,7 +79,7 @@ a {
   border-bottom: 1px solid #464545;
   background-color: #e3e8e9;
   border-radius: 15px;
-  justify-content: start;
+  justify-content: flex-start;
 
 }
 

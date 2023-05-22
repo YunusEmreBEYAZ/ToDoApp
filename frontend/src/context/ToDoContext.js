@@ -6,10 +6,11 @@ export const TodoContextProvider = ({ children }) => {
     const [todos, setTodos] = useState([]);
     const [error, setError] = useState(null);
 
-    const fetchTodos = async () => {
+    const fetchTodos = async (category) => {
 
         try {
-            const response = await fetch("todo");
+            const url = category ? `/todo?category=${category}` : "/todo";
+            const response = await fetch(url);
             const json = await response.json();
             setTodos(json);
 
@@ -37,7 +38,7 @@ export const TodoContextProvider = ({ children }) => {
             const addedTodo = await response.json();
 
             if (addedTodo) {
-                setTodos([...todos, addedTodo]);
+                setTodos([addedTodo, ...todos]);
             }
 
             return addedTodo;
@@ -57,6 +58,8 @@ export const TodoContextProvider = ({ children }) => {
         } catch (error) {
             setError(error);
         }
+
+
     };
 
     const contextValue = {

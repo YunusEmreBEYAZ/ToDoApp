@@ -9,8 +9,6 @@ export const TodoDetail = ({ singleToDo }) => {
 
         if (response) {
             fetchTodos();
-        } else {
-            throw Error("Failed to delete!")
         }
     };
 

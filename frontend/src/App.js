@@ -12,6 +12,9 @@ function App() {
             <Route
               path='/'
               element={<Home />} />
+            <Route
+              path="/category/:category"
+              element={<Home />} />
           </Routes>
         </div>
       </BrowserRouter>
