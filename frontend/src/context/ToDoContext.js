@@ -23,6 +23,7 @@ export const TodoContextProvider = ({ children }) => {
         fetchTodos();
     }, []);
 
+
     const addTodo = async (newTodo) => {
         try {
             const response = await fetch("todo", {
@@ -33,15 +34,21 @@ export const TodoContextProvider = ({ children }) => {
                 body: JSON.stringify(newTodo),
             });
 
-            setTodos([...todos, response]);
-            return newTodo;
+            const addedTodo = await response.json();
 
+            if (addedTodo) {
+                setTodos([...todos, addedTodo]);
+            }
+
+            return addedTodo;
 
         } catch (error) {
             setError(error);
         }
 
+
     };
+
 
     const deleteTodo = async (id) => {
         try {
@@ -54,6 +61,7 @@ export const TodoContextProvider = ({ children }) => {
 
     const contextValue = {
         todos,
+        fetchTodos,
         addTodo,
         deleteTodo,
         error,

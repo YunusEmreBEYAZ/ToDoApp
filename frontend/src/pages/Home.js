@@ -1,27 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import { TodoDetail } from "../components/TodoDetail.js";
 import { AddToDoForm } from "../components/AddToDoForm.js";
+import { TodoContext } from "../context/ToDoContext.js";
 
 const Home = () => {
-    const [toDo, setToDo] = useState(null)
+    const { todos, fetchTodos } = useContext(TodoContext)
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('/todo')
-            const data = await response.json()
+
 
             if (response.ok) {
-                setToDo(data)
+                fetchTodos()
             }
         }
         fetchData();
-    }, [])
+    })
 
     return (
         <div className="home">
             <AddToDoForm />
             <div>
-                {toDo && toDo.map((singleToDo) => (
+                {todos && todos.map((singleToDo) => (
                     <TodoDetail key={singleToDo._id} singleToDo={singleToDo} />
 
                 ))}

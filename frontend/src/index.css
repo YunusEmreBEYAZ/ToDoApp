@@ -43,31 +43,62 @@ a {
   margin: 0 5%;
 }
 
-.todo-category {
-  font-size: small;
-  font-weight: 400;
-  padding-right: 10px;
-  margin-left: 10px;
-  margin-right: 20px;
-  color: #298ce9;
+
+.todo-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
 }
 
+
 .todo-item {
-  max-width: 80%;
+  display: flex;
+  width: 70%;
   margin: auto;
+  margin-bottom: 15px;
   border-bottom: 1px solid #464545;
   background-color: #e3e8e9;
   border-radius: 15px;
-  justify-content: center;
+  justify-content: start;
 
+}
+
+.todo-category {
+  width: 7%;
+  font-size: small;
+  font-weight: 400;
+  margin: auto;
+  margin-left: 15px;
+  justify-content: center;
+  align-items: center;
+  color: #298ce9;
 }
 
 .todo-text {
   font-size: larger;
-  padding-top: 4vh;
-  align-items: center;
-  justify-content: center;
+  width: 85%;
+  margin-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
 }
+
+.todo-delete {
+  margin: auto;
+
+}
+
+.todo-delete:hover {
+  cursor: pointer;
+}
+
+.todo-delete img {
+  width: 30px;
+
+}
+
+
 
 .add-todo-form {
   max-width: 100%;
