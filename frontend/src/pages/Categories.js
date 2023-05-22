@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { TodoDetail } from "../components/TodoDetail.js";
 import { AddToDoForm } from "../components/AddToDoForm.js";
 import { TodoContext } from "../context/ToDoContext.js";
