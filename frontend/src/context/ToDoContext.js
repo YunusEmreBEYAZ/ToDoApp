@@ -25,9 +25,10 @@ export const TodoContextProvider = ({ children }) => {
     }, []);
 
 
-    const addTodo = async (newTodo) => {
+    const addTodo = async (newTodo, category) => {
         try {
-            const response = await fetch("todo", {
+            const url = category ? `/todo?category=${category}` : "/todo";
+            const response = await fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -39,6 +40,7 @@ export const TodoContextProvider = ({ children }) => {
 
             if (addedTodo) {
                 setTodos([addedTodo, ...todos]);
+                fetchTodos()
             }
 
             return addedTodo;
@@ -51,10 +53,12 @@ export const TodoContextProvider = ({ children }) => {
     };
 
 
-    const deleteTodo = async (id) => {
+    const deleteTodo = async (id, category) => {
         try {
-            await fetch(`todo/${id}`, { method: "DELETE" });
+            const url = category ? `/todo?category=${category}` : "/todo";
+            await fetch(`${url}/${id}`, { method: "DELETE" });
             setTodos(todos.filter((todo) => todo.id !== id));
+            fetchTodos()
         } catch (error) {
             setError(error);
         }

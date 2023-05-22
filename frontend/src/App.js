@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Navbar from './components/Navbar.js';
+import Categories from './pages/Categories.js';
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
               path='/'
               element={<Home />} />
             <Route
-              path="/category/:category"
-              element={<Home />} />
+              path='/category/:category'
+              element={<Categories />} />
           </Routes>
         </div>
       </BrowserRouter>
