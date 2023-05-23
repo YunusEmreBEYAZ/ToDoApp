@@ -1,6 +1,7 @@
 import { useState, useContext } from "react"
 import { TodoContext } from "../context/ToDoContext.js"
 
+
 export const AddToDoForm = () => {
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
@@ -8,7 +9,6 @@ export const AddToDoForm = () => {
 
     //useContext
     const { addTodo } = useContext(TodoContext)
-
     const handleSubmit = async (e) => {
         e.preventDefault()
 

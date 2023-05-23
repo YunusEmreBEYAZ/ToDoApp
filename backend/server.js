@@ -2,18 +2,20 @@ import dotenv from 'dotenv';
 import express from 'express';
 import toDo from './routes/todo.js'
 import mongoose from 'mongoose';
+import userRoutes from './routes/user.js'
+
 dotenv.config()
 
 
 const app = express();
 app.use(express.json())
 app.use((req, res, next) => {
-    console.log(req.path, req.method);
     next();
 })
 
 //routes
 app.use('/todo', toDo)
+app.use('/user', userRoutes)
 
 
 //connection to mongodb
