@@ -1,7 +1,11 @@
 import express from "express";
 import { addToDo, getAlltoDo, findToDO, deleteToDo, updateToDo } from "../controllers/todoController.js";
+import { requireAuth } from "../middleware/requireAuth.js";
 
 const router = express.Router();
+
+// for accessing the all todo routes
+router.use(requireAuth)
 
 router.get('/', getAlltoDo)
 
