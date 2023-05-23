@@ -207,7 +207,7 @@ form.login {
   padding: 20px;
   background: #061c20;
   color: #7bd8df;
-  border-radius: 5px;
+  border-radius: 15px;
 
 }
 
@@ -252,7 +252,7 @@ form.signup div {
 
 .btn-logout {
 
-  background-color: #daeaf1;
+  background: transparent;
   border: 1px solid #7bd8df;
   border-radius: 15px;
   padding: 10px;
@@ -260,7 +260,7 @@ form.signup div {
   font-weight: 700;
   font-size: large;
   cursor: pointer;
-  margin-right: 10px;
+  margin-left: 15px;
 }
 
 .btn-logout:hover {

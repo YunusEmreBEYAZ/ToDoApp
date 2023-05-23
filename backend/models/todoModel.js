@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const toDoSchema = new Schema({
     title: {},
-    category: {}
+    category: {},
+    user_id: {}
 }, { timestamps: true })
 
 export default mongoose.model('todo', toDoSchema)

@@ -95,6 +95,7 @@ export const TodoContextProvider = ({ children }) => {
 
     const contextValue = {
         todos,
+        setTodos,
         fetchTodos,
         addTodo,
         deleteTodo,

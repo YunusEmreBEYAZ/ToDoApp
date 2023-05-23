@@ -1,8 +1,10 @@
 import { useAuthContext } from "./useAuthContext"
+import { useTodoContext } from "./useTodoContext"
 
 export const useLogout = () => {
 
     const { dispatch } = useAuthContext()
+    const { setTodos } = useTodoContext()
 
     const logout = () => {
         //remove user from local storage
@@ -10,7 +12,7 @@ export const useLogout = () => {
 
         //dispatch logout action
         dispatch({ type: 'LOGOUT' })
-
+        setTodos('')
 
 
     }

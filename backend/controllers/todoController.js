@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 
 //get all ToDO's
 export const getAlltoDo = async (req, res) => {
-    const allToDo = await Todo.find().sort({ createdAt: -1 })
+    const user_id = req.user._id
+
+    const allToDo = await Todo.find({ user_id }).sort({ createdAt: -1 })
     res.status(200).json(allToDo)
 }
 
@@ -28,10 +30,14 @@ export const findToDO = async (req, res) => {
 // add new ToDo
 export const addToDo = async (req, res) => {
     const { title, category } = req.body;
+    const user_id = req.user._id;
 
     if (title && category) {
+
         try {
-            const todo = await Todo.create({ title, category });
+
+
+            const todo = await Todo.create({ title, category, user_id });
             res.status(200).json(todo)
         } catch (error) {
             res.status(400).json({ error: error.message })
