@@ -55,7 +55,7 @@ export const TodoContextProvider = ({ children }) => {
 
             if (addedTodo) {
                 setTodos([addedTodo, ...todos]);
-                fetchTodos()
+                // fetchTodos()
             }
 
             return addedTodo;

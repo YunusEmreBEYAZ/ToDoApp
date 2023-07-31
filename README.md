@@ -1,3 +1,6 @@
+![Notes](./frontend/public/Login.png "Notes-Login")
+![Notes](./frontend/public/main.png "Notes-Main")
+
 # Notes to Myself
 
 ## About
